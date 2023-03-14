@@ -121,7 +121,7 @@ prevEl.addEventListener('click', function () {
   // pongo condizioni per decremento valore
   if(activeImage == 0){
     activeImage = 4
-  }else{activeImage++}
+  }else{activeImage--}
   
   // seleziono la prossima immagine
   const nextImage = slideImagesElements[activeImage]
