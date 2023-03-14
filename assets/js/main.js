@@ -66,7 +66,6 @@ Al momento giusto (ihihhi starà a voi capire quale) rispondete a questa domanda
 
 // seleziono l' elemento dove mostrero le immagini
 const imagesElement = document.querySelector('.slider > .images')
-console.log(imagesElement);
 
 // Creo un'array di percorsi
 const imageNames = ['./assets/img/01.webp', './assets/img/02.webp', './assets/img/03.webp', './assets/img/04.webp', './assets/img/05.webp'];
@@ -78,7 +77,6 @@ let activeImage = 0
 for (let i = 0; i < imageNames.length; i++) {
   const imgSrc = imageNames[i];
   const imgElement = `<img class="img-fluid ${i === activeImage ? 'active' : ''}" src="${imgSrc}" alt="">`
-  console.log(imgElement);
   // InsertAjacentHTML
   imagesElement.insertAdjacentHTML('beforeend', imgElement)
 }
@@ -88,13 +86,9 @@ const slideImagesElements = document.querySelectorAll('.slider > .images > img')
 
 // setto in ascolto il pulsante next
 const nextEl = document.querySelector('.next')
-nextEl.addEventListener('click', function () {
-  console.log('cliccato next');
-  
-  console.log(slideImagesElements); //array[index]
+nextEl.addEventListener('click', function () {  
   // seleziono la slide corrente
   const currentSlide = slideImagesElements[activeImage]
-  console.log(currentSlide);
   // rimuovo la classe active dall' immagine attiva
   currentSlide.classList.remove('active')
   // pongo condizioni per incremento valore
@@ -102,10 +96,8 @@ nextEl.addEventListener('click', function () {
     activeImage = 0
   }else{activeImage++}
   // seleziono la prossima immagine
-  console.log(activeImage);
   const nextImage = slideImagesElements[activeImage]
   // aggiungo la clase active
-  console.log(nextImage);
   nextImage.classList.add('active')
 
   
@@ -114,12 +106,8 @@ nextEl.addEventListener('click', function () {
 // setto in ascolto il pulsante prev
 const prevEl = document.querySelector('.prev')
 prevEl.addEventListener('click', function () {
-  console.log('cliccato prev');
-
-  console.log(slideImagesElements); //array[index]
   // seleziono la slide corrente
   const currentSlide = slideImagesElements[activeImage]
-  console.log(currentSlide);
   // rimuovo la classe active dall' immagine attiva
   currentSlide.classList.remove('active')
   // pongo condizioni per decremento valore
@@ -127,10 +115,8 @@ prevEl.addEventListener('click', function () {
     activeImage = 4
   }else{activeImage++}
   // seleziono la prossima immagine
-  console.log(activeImage);
   const nextImage = slideImagesElements[activeImage]
   // aggiungo la clase active
-  console.log(nextImage);
   nextImage.classList.add('active')
 
 })
