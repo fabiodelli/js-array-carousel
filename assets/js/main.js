@@ -87,16 +87,21 @@ const slideImagesElements = document.querySelectorAll('.slider > .images > img')
 // setto in ascolto il pulsante next
 const nextEl = document.querySelector('.next')
 nextEl.addEventListener('click', function () {  
-  // seleziono la slide corrente
+  
+    // seleziono la slide corrente
   const currentSlide = slideImagesElements[activeImage]
+  
   // rimuovo la classe active dall' immagine attiva
   currentSlide.classList.remove('active')
+  
   // pongo condizioni per incremento valore
   if(activeImage == 4){
     activeImage = 0
   }else{activeImage++}
+ 
   // seleziono la prossima immagine
   const nextImage = slideImagesElements[activeImage]
+  
   // aggiungo la clase active
   nextImage.classList.add('active')
 
@@ -106,16 +111,21 @@ nextEl.addEventListener('click', function () {
 // setto in ascolto il pulsante prev
 const prevEl = document.querySelector('.prev')
 prevEl.addEventListener('click', function () {
-  // seleziono la slide corrente
+ 
+    // seleziono la slide corrente
   const currentSlide = slideImagesElements[activeImage]
+  
   // rimuovo la classe active dall' immagine attiva
   currentSlide.classList.remove('active')
+  
   // pongo condizioni per decremento valore
   if(activeImage == 0){
     activeImage = 4
   }else{activeImage++}
+  
   // seleziono la prossima immagine
   const nextImage = slideImagesElements[activeImage]
+  
   // aggiungo la clase active
   nextImage.classList.add('active')
 
