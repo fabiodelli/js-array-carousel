@@ -29,9 +29,22 @@ Abbiamo completato ormai da qualche giorno la sessione HTML e CSS, se non ci ric
 Costruiamo del carosello una versione statica contenente solamente un'immagine. Di questa versione statica al momento opportuno commenteremo (oscureremo) alcuni elementi per poterli riprodurre dinamicamente in js. Potremo quindi usarli come "template".
 Scriviamo sempre prima per punti il nostro algoritmo in italiano per capire cosa vogliamo fare
 Al momento giusto (ihihhi starà a voi capire quale) rispondete a questa domanda: "Quanti cicli servono?"
-
-
 */
+
+// procedimento
+
+// seleziono l' elemento dove mostrero le immagini
+// Creo un'array di percorsi
+// seleziono l' immagine attiva
+// ciclo le immagini e aggiungo un' elemento al DOM
+// seleziono le slide
+// setto in ascolto il pulsante next
+// seleziono la slide corrente
+// rimuovo la classe active dall' immagine attiva
+// pongo condizioni per incremento o decremento valore
+// seleziono la prossima immagine
+// aggiungo la clase active
+
 
 
 // Strumenti
@@ -40,7 +53,13 @@ Al momento giusto (ihihhi starà a voi capire quale) rispondete a questa domanda
 // const/let
 // querySelector
 // eventListener
-// increment/descrement
+// increment/decrement
+// cicle
+// add/remove
+// insertAdjacentHTML
+// console.log
+// function
+// classList
 
 
 
@@ -49,14 +68,13 @@ Al momento giusto (ihihhi starà a voi capire quale) rispondete a questa domanda
 const imagesElement = document.querySelector('.slider > .images')
 console.log(imagesElement);
 
-//Creo un'array di percorsi
-
+// Creo un'array di percorsi
 const imageNames = ['./assets/img/01.webp', './assets/img/02.webp', './assets/img/03.webp', './assets/img/04.webp', './assets/img/05.webp'];
 
-// select the active image
+// seleziono l' immagine attiva
 let activeImage = 0
 
-// loop over the images and add a new img dom element
+// ciclo le immagini e aggiungo un' elemento al DOM
 for (let i = 0; i < imageNames.length; i++) {
   const imgSrc = imageNames[i];
   const imgElement = `<img class="img-fluid ${i === activeImage ? 'active' : ''}" src="${imgSrc}" alt="">`
@@ -64,5 +82,58 @@ for (let i = 0; i < imageNames.length; i++) {
   // InsertAjacentHTML
   imagesElement.insertAdjacentHTML('beforeend', imgElement)
 }
+
+// seleziono le slide
+const slideImagesElements = document.querySelectorAll('.slider > .images > img')  
+
+// setto in ascolto il pulsante next
+const nextEl = document.querySelector('.next')
+nextEl.addEventListener('click', function () {
+  console.log('cliccato next');
+  
+  console.log(slideImagesElements); //array[index]
+  // seleziono la slide corrente
+  const currentSlide = slideImagesElements[activeImage]
+  console.log(currentSlide);
+  // rimuovo la classe active dall' immagine attiva
+  currentSlide.classList.remove('active')
+  // pongo condizioni per incremento valore
+  if(activeImage == 4){
+    activeImage = 0
+  }else{activeImage++}
+  // seleziono la prossima immagine
+  console.log(activeImage);
+  const nextImage = slideImagesElements[activeImage]
+  // aggiungo la clase active
+  console.log(nextImage);
+  nextImage.classList.add('active')
+
+  
+})
+
+// setto in ascolto il pulsante prev
+const prevEl = document.querySelector('.prev')
+prevEl.addEventListener('click', function () {
+  console.log('cliccato prev');
+
+  console.log(slideImagesElements); //array[index]
+  // seleziono la slide corrente
+  const currentSlide = slideImagesElements[activeImage]
+  console.log(currentSlide);
+  // rimuovo la classe active dall' immagine attiva
+  currentSlide.classList.remove('active')
+  // pongo condizioni per decremento valore
+  if(activeImage == 0){
+    activeImage = 4
+  }else{activeImage++}
+  // seleziono la prossima immagine
+  console.log(activeImage);
+  const nextImage = slideImagesElements[activeImage]
+  // aggiungo la clase active
+  console.log(nextImage);
+  nextImage.classList.add('active')
+
+})
+
 
 
