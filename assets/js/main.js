@@ -35,6 +35,7 @@ Al momento giusto (ihihhi starà a voi capire quale) rispondete a questa domanda
 
 
 // Strumenti
+
 // array
 // const/let
 // querySelector
