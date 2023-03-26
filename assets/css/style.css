@@ -1,0 +1,28 @@
+body {
+  background: #ededed;
+}
+
+.slide {
+ overflow-clip-margin:;
+}
+.slide img {
+  height: 500px;
+}
+
+.prev {
+  position: absolute;
+  top: 58%;
+  left: 2%;
+  z-index: 1;
+}
+
+.next {
+  position: absolute;
+  top: 58%;
+  right: 2%;
+  z-index: 1;
+}
+
+.slide:not(.active) {
+  display: none;
+}
