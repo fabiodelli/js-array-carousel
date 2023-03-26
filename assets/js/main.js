@@ -95,13 +95,13 @@ let i = 0
 
 // ciclo le immagini e aggiungo un' elemento al DOM
 images.forEach(card => {
-  const imgEl = `<div class="slide ${i === activeImage ? "active" : ""}">
+  const imgEl = `<div class="slide ${i === activeImage ? "active" : ""} position-relative">
                    <img src="./assets/${card.image}" class="card-img-top" alt="">
-                   <div>
-                   <h3>${card.title}</h3>
-                   <p>${card.text}</p>
-                   </div>
-                   </div>`
+                   <span class="position-absolute w-100 h-25 start-0 bottom-0 text-white b_g p-2">
+                      <h3>${card.title}</h3>
+                      <p>${card.text}</p>
+                   </span>
+                 </div>`
   imagesEl.insertAdjacentHTML('beforeend', imgEl)
   i++
   console.log(imgEl)
