@@ -86,6 +86,7 @@ const images = [
   }
 ];
 
+
 // seleziono l' elemento dove mostrero le immagini
 const imagesEl = document.querySelector(".images")
 
@@ -104,10 +105,8 @@ images.forEach(card => {
                  </div>`
   imagesEl.insertAdjacentHTML('beforeend', imgEl)
   i++
-  console.log(imgEl)
-  console.log(i)
-})
 
+})
 
 // seleziono le slide
 const cardEl = document.querySelectorAll(".slide")
@@ -123,9 +122,11 @@ nextEl.addEventListener('click', function () {
   currentSlide.classList.remove("active")
 
   // pongo condizioni per incremento valore
-  if (activeImage == 4) {
+  
+  if (activeImage == i-1) {
     activeImage = 0
   } else { activeImage++ }
+  
 
   // seleziono la prossima immagine
   const nextImage = cardEl[activeImage]
@@ -145,10 +146,10 @@ prevEl.addEventListener('click', function () {
   const currentSlide = cardEl[activeImage]
 
   // rimuovo la classe active dall' immagine attiva
-  currentSlide.classList.remove('active')
+  currentSlide.classList.toggle('active')
 
   // pongo condizioni per decremento valore
-  if (activeImage == 0) {
+  if (activeImage == i-i) {
     activeImage = 4
   } else { activeImage-- }
 
@@ -156,7 +157,7 @@ prevEl.addEventListener('click', function () {
   const nextImage = cardEl[activeImage]
 
   // aggiungo la clase active
-  nextImage.classList.add('active')
+  nextImage.classList.toggle('active')
 
 })
 
