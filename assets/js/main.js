@@ -62,29 +62,7 @@ Al momento giusto (ihihhi starà a voi capire quale) rispondete a questa domanda
 // classList
 
 
-const images = [
-  {
-    image: 'img/01.webp',
-    title: 'Marvel\'s Spiderman Miles Morale',
-    text: 'Experience the rise of Miles Morales as the new hero masters incredible, explosive new powers to become his own Spider-Man.',
-  }, {
-    image: 'img/02.webp',
-    title: 'Ratchet & Clank: Rift Apart',
-    text: 'Go dimension-hopping with Ratchet and Clank as they take on an evil emperor from another reality.',
-  }, {
-    image: 'img/03.webp',
-    title: 'Fortnite',
-    text: "Grab all of your friends and drop into Epic Games Fortnite, a massive 100 - player face - off that combines looting, crafting, shootouts and chaos.",
-  }, {
-    image: 'img/04.webp',
-    title: 'Stray',
-    text: 'Lost, injured and alone, a stray cat must untangle an ancient mystery to escape a long-forgotten city',
-  }, {
-    image: 'img/05.webp',
-    title: "Marvel's Avengers",
-    text: 'Marvel\'s Avengers is an epic, third-person, action-adventure game that combines an original, cinematic story with single-player and co-operative gameplay.',
-  }
-];
+const images = ['img/01.webp','img/02.webp','img/03.webp','img/04.webp','img/05.webp'];
 
 
 // seleziono l' elemento dove mostrero le immagini
@@ -95,18 +73,13 @@ let activeImage = 0
 let i = 0
 
 // ciclo le immagini e aggiungo un' elemento al DOM
-images.forEach(card => {
+for (let i = 0; i < images.length; i++) {
   const imgEl = `<div class="slide ${i === activeImage ? "active" : ""} position-relative">
-                   <img src="./assets/${card.image}" class="card-img-top" alt="">
-                   <span class="position-absolute w-100 h-25 start-0 bottom-0 text-white b_g p-2">
-                      <h3>${card.title}</h3>
-                      <p>${card.text}</p>
-                   </span>
+                   <img src="./assets/${images[i]}" class="card-img-top" alt="">
                  </div>`
-  imagesEl.insertAdjacentHTML('beforeend', imgEl)
-  i++
-
-})
+  imagesEl.insertAdjacentHTML('beforeend', imgEl) 
+  
+}
 
 // seleziono le slide
 const cardEl = document.querySelectorAll(".slide")
@@ -123,7 +96,7 @@ nextEl.addEventListener('click', function () {
 
   // pongo condizioni per incremento valore
   
-  if (activeImage == i-1) {
+  if (activeImage == images.length-1) {
     activeImage = 0
   } else { activeImage++ }
   
@@ -149,8 +122,8 @@ prevEl.addEventListener('click', function () {
   currentSlide.classList.toggle('active')
 
   // pongo condizioni per decremento valore
-  if (activeImage == i-i) {
-    activeImage = 4
+  if (activeImage == 0) {
+    activeImage = images.length-1
   } else { activeImage-- }
 
   // seleziono la prossima immagine
