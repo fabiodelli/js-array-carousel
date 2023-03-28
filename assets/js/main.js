@@ -70,7 +70,6 @@ const imagesEl = document.querySelector(".images")
 
 // seleziono l' immagine attiva
 let activeImage = 0
-let i = 0
 
 // ciclo le immagini e aggiungo un' elemento al DOM
 for (let i = 0; i < images.length; i++) {
